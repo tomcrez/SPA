@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8"> /*metadata values*/
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>EcoPlan</title> /*document title*/
+ <link rel="icon" href="logo.png" type="image/png"> /*ecoplan favicon*/
+</head>
+
+<body>
+ <h1>EcoPlan - Choose a Healthy Lifestyle!</h1> /*major heading*/
+ <div style="margin-bottom: 20px;"> /*helps with content organization*/
+  <img src="chooseecoplan.png" alt="Choose EcoPlan" width="1000" height="300"> /*banner immage*/
+  <blockquote> /*motivational quote*/
+  "Small changes make a big difference. Start today and create a sustainable tomorrow!"
+  </blockquote>
+ </div>
+ <div>
+    <h2>Tracker</h2> /*User Input Fields*/
+    <p>Enter your goal (L): <input type="text" id="goal"></p>
+    <p>Enter your current intake (L): <input type="text" id="intake"></p>
+    <p>Enter your deadline: <input type="text" id="deadline"></p>
+    <button onclick="updateTable()">Update</button>
+    <table border="1">
+    <tr>
+     <th>Category</th>
+     <th>Details</th>
+    </tr>
+    <tr>
+     <td>Goal (L)</td>
+     <td id="goalValue">--</td>
+    </tr>
+    <tr>
+     <td>Current Intake (L)</td>
+     <td id="intakeValue">--</td>
+    </tr>
+    <tr>
+     <td>Remaining (L)</td>
+     <td id="remainingValue">--</td>
+     </tr>
+     <tr>
+      <td>Deadline</td>
+      <td id="deadlineValue">--</td>
+     </tr>
+     </table>
+ </div>
+ <div style="margin-bottom: 20px;"> 
+ <p>Want to change your life but don’t know where to start? EcoPlan is designed to help you take the first step toward a healthier and more sustainable lifestyle.</p> /*paragraph of the text*/
+ <br> /*break line*/
+ <a href="https://www.niddk.nih.gov/health-information/diet-nutrition/changing-habits-better-health" target="_blank" style="display:inline-block;
+padding:10px; background-color:#007BFF; color:white; text-decoration:none;">Learn More About Healthy Habits</a> /*hypertext link and hyperlinked button*/
+ </div>
+</body>
+
+</html>
