@@ -1,0 +1,41 @@
+* {
+    margin: 200;
+    padding: 200;
+    box-sizing: border-box;
+   }
+   h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #778da9;
+   }
+   img {
+    display: block;
+    margin: auto;
+   }
+   blockquote {
+    text-align: center;
+    color: #1b263b;
+   }
+   h2, h3, p, table {
+    color: #415a77;
+   }
+   h4 {
+    color: #1b263b;
+   }
+   a {
+    display: inline-block;
+    padding: 10px;
+    margin: auto; 
+    background-color:#1b263b;
+    color: #e0e1dd; 
+   }
+   div {
+    margin-bottom: 20px
+   }
+   .highlight {
+    background-color: #e0e1dd;
+    padding: 10px;
+   }
+   #main-title {
+    font-family: "Helvetica";
+   }
