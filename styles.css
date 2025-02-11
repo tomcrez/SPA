@@ -1,41 +1,90 @@
 * {
-    margin: 200;
-    padding: 200;
-    box-sizing: border-box;
-   }
-   h1 {
-    font-size: 2.5em;
-    text-align: center;
-    color: #778da9;
-   }
-   img {
-    display: block;
-    margin: auto;
-   }
-   blockquote {
-    text-align: center;
-    color: #1b263b;
-   }
-   h2, h3, p, table {
-    color: #415a77;
-   }
-   h4 {
-    color: #1b263b;
-   }
-   a {
-    display: inline-block;
-    padding: 10px;
-    margin: auto; 
-    background-color:#1b263b;
-    color: #e0e1dd; 
-   }
-   div {
-    margin-bottom: 20px
-   }
-   .highlight {
-    background-color: #e0e1dd;
-    padding: 10px;
-   }
-   #main-title {
-    font-family: "Helvetica";
-   }
+  margin: 200;
+  padding: 200;
+  box-sizing: border-box;
+  background-color: #e0e1dd;
+ }
+ h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #778da9;
+ }
+ img {
+  display: block;
+  margin: auto;
+ }
+ blockquote, h5 {
+  text-align: center;
+  color: #1b263b;
+ }
+ h4 {
+  color: #415a77;
+  font-size: 2.0em;
+ }
+ h3 {
+  color: #415a77;
+ }
+ h2, label, input, select {
+  background-color: white;
+ }
+ a {
+  display: inline-block;
+  padding: 10px;
+  margin: auto; 
+  background-color:#1b263b;
+  color: #e0e1dd; 
+ }
+ div {
+  margin-bottom: 20px
+ }
+ .highlight {
+  background-color: #e0e1dd;
+  padding: 10px;
+ }
+ #main-title {
+  font-family: "Helvetica";
+ }
+
+ #authFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+form {
+  background: white;
+  padding: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #1b263b;
+  color: white;
+  border: none;
+}
+
+form button[type="button"] {
+  background-color: #415a77;
+  margin-top: 10px;
+}
