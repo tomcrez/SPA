@@ -37,7 +37,11 @@
 
     <h3>Welcome to EcoPlan - Choose a Healthy Lifestyle!</h3>
 
-    <div> <!--helps with content organization-->
+   <div id="notification">Notification Message</div> <!--helps with content organization-->
+    <button onclick="showNotification('Do not forget to put your todays progress to the tracker!')"
+    >You have one new notification</button>
+    
+    <div> 
       <h4>Goals</h4> <!--goal setting system-->
       <ul id="goalsList"> <!--unordered list of goals-->
         <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li> <!--used list system, 
