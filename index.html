@@ -10,63 +10,26 @@
 </head>
 
 <body>
-
- <h1> Welcome to EcoPlan - Choose a Healthy Lifestyle!</h1> <!--major heading-->
- <div> <!--helps with content organization-->
-  <img src="chooseecoplan.png" alt="Choose EcoPlan" width="1000" height="300"> <!--banner immage-->
-  <h5>Want to change your life but don’t know where to start? EcoPlan is designed to help you take the first step toward a healthier and more sustainable lifestyle.</h5> 
- </div>
-
- <div id="authFormContainer">
-
-  <div id="loginForm">
-      <form id="loginForm">
-          <h2>Login</h2>
-          <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required />
-          </div>
-          <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <button type="submit">Login</button>
-          <button type="button" id="toggleSignUp">Sign Up</button>
-      </form>
+  <button id="themeToggle">Light/Dark</button>
+  <h1> Welcome to EcoPlan - Choose a Healthy Lifestyle!</h1> <!--major heading-->
+  <div> <!--helps with content organization-->
+   <img src="chooseecoplan.png" alt="Choose EcoPlan" width="1000" height="300"> <!--banner immage-->
+   <h5>Want to change your life but don’t know where to start? EcoPlan is designed to help you take the first step toward a healthier and more sustainable lifestyle.</h5> 
   </div>
-
-  <div id="signUpForm" class="hidden">
-      <form id="signUpForm">
-          <h2>Sign Up</h2>
-          <div>
-            <label for="newUsername">Username:</label>
-            <input type="text" id="newUsername" name="newUsername" required />
-          </div>
-          <div>
-            <label for="newPassword">Password:</label>
-            <input type="password" id="newPassword" name="newPassword" required />
-          </div>
-          <button type="submit">Sign Up</button>
-          <button type="button" id="toggleLogin">Back to Login</button>
-      </form>
-  </div>
-
-</div>
-
-<div id="content" class="hidden">
-
- <h3>Goals<h3> <!--goal setting system-->
- <ul> <!--unordered list of goals-->
-    <li><input type="text"/><input type="checkbox"/></li> <!--list system, where the user can add a goal, and then click a checkbox when he achives it-->
-    <li><input type="text"/><input type="checkbox"/></li>
-    <li><input type="text"/><input type="checkbox"/></li>
- </ul>     
-</div>
+<div>
+ <h3>Goals</h3> <!--goal setting system-->
+ <ul id="goalsList"> <!--unordered list of goals-->
+    <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li> <!--used list system, 
+    where the user can add a goal, and then click a checkbox when he achives it-->
+    <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li>
+    <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li>
+ </ul>    
+</div> 
 
  <div>
     <h4>Tracker</h4> 
-    <p>Habit: <input type="text"></p> <!--user can input any habit-->
-    <p>Month of: <select> <!--user selects the month of the year-->
+    <p>Habit: <input type="text" id="habitInput"></p> <!--user can input any habit-->
+    <p>Month of: <select id="monthSelect"> <!--user selects the month of the year-->
         <option>January</option>
         <option>February</option>
         <option>March</option>
@@ -80,7 +43,7 @@
         <option>November</option>
         <option>December</option>
         </select></p>
-    <p>Week <select> <!--user selects the number of the week-->
+    <p>Week <select id="weekSelect"> <!--user selects the number of the week-->
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -93,37 +56,39 @@
     </tr>
     <tr>
      <td>Mon</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="monCheckbox"/></td>
     </tr>
     <tr>
      <td>Tue</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="tueCheckbox"/></td>
     </tr>
     <tr>
      <td>Wed</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="wedCheckbox"/></td>
     </tr>
     <tr>
      <td>Thu</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="thuCheckbox"/></td>
     </tr>
     <tr>
      <td>Fri</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="friCheckbox"/></td>
     </tr>
     <tr>
      <td>Sat</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="satCheckbox"/></td>
     </tr>
     <tr>
      <td>Sun</td>
-     <td><input type="checkbox"/></td>
+     <td><input type="checkbox" class="dayCheckbox" id="sunCheckbox"/></td>
     </tr>
      </table>
+     <button id="saveButton">Save</button>
+     <button id="deleteButton">Delete</button>
  </div>
-
  <div> 
-      <a href="https://www.niddk.nih.gov/health-information/diet-nutrition/changing-habits-better-health" target="_blank" >Learn More About Healthy Habits</a> <!--hypertext link and hyperlinked button-->
+      <a href="https://www.niddk.nih.gov/health-information/diet-nutrition/changing-habits-better-health" target="_blank" 
+      >Learn More About Healthy Habits</a> <!--hypertext link and hyperlinked button-->
       <br> <!--break line-->
       <blockquote> <!--motivational quote-->
         "Small changes make a big difference. Start today and create a sustainable tomorrow!"
@@ -131,7 +96,7 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js"></script> <!--linking javascript file-->
 
 </body>
 
