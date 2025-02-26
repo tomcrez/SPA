@@ -4,27 +4,42 @@
   box-sizing: border-box;
 }
 
+nav {
+  margin: 20px 0;
+}
+
+.page {
+  display: none;
+  margin-top: 50px;
+}
+
+.page h1, h2 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
 /*typography*/
-h1 {
+h3 {
   font-size: 2.5em;
   text-align: center;
   color: #778da9;
 }
 
-h2, label, input, select {
+label, input, select {
   background-color: white;
 }
 
-h3, h4 {
+h4, h5 {
   color: #415a77;
   font-size: 2.0em;
 }
 
-h4 {
+h5 {
   font-size: 2em;
 }
 
-h5, blockquote {
+blockquote {
   text-align: center;
   color: #1b263b;
 }
@@ -70,7 +85,7 @@ button {
 }
 
 /*light mode headings */
-h5, h3, h4, blockquote {
+h3, h4, blockquote {
   color: #415a77;
 }
 
