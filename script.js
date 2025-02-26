@@ -63,6 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function showNotification(message) { //Function that shows the notification
+    const notification = document.getElementById('notification');
+    notification.innerText = message;
+    notification.style.display = 'block';
+}
+
 if (localStorage.getItem('theme') === 'dark') { //Check if dark mode preference is stored in localStorage and apply it
     document.body.classList.add('dark-mode'); //Apply dark mode if stored preference is 'dark'
 }
