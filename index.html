@@ -2,102 +2,107 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8"> <!--metadata values-->
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>EcoPlan</title> <!--document title-->
- <link rel="icon" href="logo.png" type="image/png"> <!--ecoplan favicon-->
- <link rel="stylesheet" href="styles.css"> <!--linking css-->
+  <meta charset="UTF-8"> <!--metadata values-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPlan</title> <!--document title-->
+  <link rel="icon" href="logo.png" type="image/png"> <!--ecoplan favicon-->
+  <link rel="stylesheet" href="styles.css"> <!--linking css-->
 </head>
 
 <body>
-  <button id="themeToggle">Light/Dark</button>
-  <h1> Welcome to EcoPlan - Choose a Healthy Lifestyle!</h1> <!--major heading-->
-  <div> <!--helps with content organization-->
-   <img src="chooseecoplan.png" alt="Choose EcoPlan" width="1000" height="300"> <!--banner immage-->
-   <h5>Want to change your life but don’t know where to start? EcoPlan is designed to help you take the first step toward a healthier and more sustainable lifestyle.</h5> 
-  </div>
-<div>
- <h3>Goals</h3> <!--goal setting system-->
- <ul id="goalsList"> <!--unordered list of goals-->
-    <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li> <!--used list system, 
-    where the user can add a goal, and then click a checkbox when he achives it-->
-    <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li>
-    <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li>
- </ul>    
-</div> 
+  <button id="themeToggle">Light/Dark</button> <!--light and dark mode button-->
 
- <div>
-    <h4>Tracker</h4> 
-    <p>Habit: <input type="text" id="habitInput"></p> <!--user can input any habit-->
-    <p>Month of: <select id="monthSelect"> <!--user selects the month of the year-->
-        <option>January</option>
-        <option>February</option>
-        <option>March</option>
-        <option>April</option>
-        <option>May</option>
-        <option>June</option>
-        <option>July</option>
-        <option>August</option>
-        <option>September</option>
-        <option>October</option>
-        <option>November</option>
-        <option>December</option>
-        </select></p>
-    <p>Week <select id="weekSelect"> <!--user selects the number of the week-->
+  <nav> <!--navigation-->
+    <button id="toLogin">Login</button> <!--directs to login page-->
+    <button id="toSignup">Sign Up</button> <!--directs to signup page-->
+    <button id="toTracker">Habit Tracker</button> <!--directs to habit tracker-->
+    <button id="logoutBtn">Logout</button> <!--logs out of the spa-->
+  </nav>
+
+  <section id="loginPage" class="page"> <!--login page-->
+    <h1>Login</h1> <!--headings-->
+    <input type="text" id="loginUsername" placeholder="Username"> <!--user inputs their username-->
+    <input type="password" id="loginPassword" placeholder="Password"> <!--user inputs their password-->
+    <button id="loginBtn">Login</button> <!--redirects to habit tracker-->
+  </section>
+
+  <section id="signupPage" class="page">  <!-- signup page -->
+    <h2>Sign Up</h2>
+    <input type="text" id="signupUsername" placeholder="Choose Username"> <!--user inputs chosen username-->
+    <input type="password" id="signupPassword" placeholder="Choose Password"> <!--user inputs chosen password-->
+    <button id="signupBtn">Sign Up</button>  <!--redirects to login-->
+  </section>
+
+  <section id="trackerPage" class="page"> <!--habit tracker -->
+
+    <h3>Welcome to EcoPlan - Choose a Healthy Lifestyle!</h3>
+
+    <div> <!--helps with content organization-->
+        <img src="chooseecoplan.png" alt="Choose EcoPlan" width="1000" height="300"> <!--banner immage-->
+       </div>
+
+    <div> 
+      <h4>Goals</h4> <!--goal setting system-->
+      <ul id="goalsList"> <!--unordered list of goals-->
+        <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li> <!--used list system, 
+        where the user can add a goal, and then click a checkbox when he achives it-->
+        <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li>
+        <li><input type="text" class="goalInput"/><input type="checkbox" class="goalCheckbox"/></li>
+      </ul>
+    </div>
+
+    <div> 
+      <h5>Tracker</h5> 
+      <p>Habit: <input type="text" id="habitInput"></p> <!--user can input any habit-->
+      <p>Month of: 
+        <select id="monthSelect"> <!--user selects the month of the year-->
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+      </p>
+      <p>Week <select id="weekSelect"> <!--user selects the number of the week-->
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
-        </select></p>
-    <table border="1"> <!--the main tracker table-->
-    <tr> <!--defines a row inside a table-->
-     <th>Day</th> <!--defines a header cell-->
-     <th>Checklist</th>
-    </tr>
-    <tr>
-     <td>Mon</td>
-     <td><input type="checkbox" class="dayCheckbox" id="monCheckbox"/></td>
-    </tr>
-    <tr>
-     <td>Tue</td>
-     <td><input type="checkbox" class="dayCheckbox" id="tueCheckbox"/></td>
-    </tr>
-    <tr>
-     <td>Wed</td>
-     <td><input type="checkbox" class="dayCheckbox" id="wedCheckbox"/></td>
-    </tr>
-    <tr>
-     <td>Thu</td>
-     <td><input type="checkbox" class="dayCheckbox" id="thuCheckbox"/></td>
-    </tr>
-    <tr>
-     <td>Fri</td>
-     <td><input type="checkbox" class="dayCheckbox" id="friCheckbox"/></td>
-    </tr>
-    <tr>
-     <td>Sat</td>
-     <td><input type="checkbox" class="dayCheckbox" id="satCheckbox"/></td>
-    </tr>
-    <tr>
-     <td>Sun</td>
-     <td><input type="checkbox" class="dayCheckbox" id="sunCheckbox"/></td>
-    </tr>
-     </table>
-     <button id="saveButton">Save</button>
-     <button id="deleteButton">Delete</button>
- </div>
- <div> 
-      <a href="https://www.niddk.nih.gov/health-information/diet-nutrition/changing-habits-better-health" target="_blank" 
-      >Learn More About Healthy Habits</a> <!--hypertext link and hyperlinked button-->
-      <br> <!--break line-->
-      <blockquote> <!--motivational quote-->
-        "Small changes make a big difference. Start today and create a sustainable tomorrow!"
-        </blockquote>
-    </div>
-</div>
+      </select></p>
+      
+      <table border="1"> <!--the main tracker table-->
+        <tr> <!--defines a row inside a table-->
+          <th>Day</th> <!--defines a header cell-->
+          <th>Checklist</th>
+        </tr>
+        <tr><td>Mon</td><td><input type="checkbox" class="dayCheckbox"></td></tr> 
+        <tr><td>Tue</td><td><input type="checkbox" class="dayCheckbox"></td></tr>
+        <tr><td>Wed</td><td><input type="checkbox" class="dayCheckbox"></td></tr>
+        <tr><td>Thu</td><td><input type="checkbox" class="dayCheckbox"></td></tr>
+        <tr><td>Fri</td><td><input type="checkbox" class="dayCheckbox"></td></tr>
+        <tr><td>Sat</td><td><input type="checkbox" class="dayCheckbox"></td></tr>
+        <tr><td>Sun</td><td><input type="checkbox" class="dayCheckbox"></td></tr>
+      </table>
 
-<script src="script.js"></script> <!--linking javascript file-->
+      <button id="saveButton">Save</button> <!--button to save the inserted information-->
+      <button id="deleteButton">Delete</button> <!--button that resets everything to zero-->
+    </div>
+
+    <div>
+      <a href="https://www.niddk.nih.gov/health-information/diet-nutrition/changing-habits-better-health" target="_blank"
+      >Learn More About Healthy Habits</a> <!--hypertext link and hyperlinked button-->
+      <blockquote>"Small changes make a big difference. Start today and create a sustainable tomorrow!"</blockquote> <!--motivational quote-->
+    </div>
+  </section>
+
+  <script src="script.js"></script> <!--linking javascript file-->
 
 </body>
-
 </html>
