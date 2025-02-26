@@ -1,6 +1,6 @@
 * {
-  margin: 300;
-  padding: 300;
+  margin: 100;
+  padding: 100;
   box-sizing: border-box;
 }
 
@@ -24,6 +24,7 @@ h3 {
   font-size: 2.5em;
   text-align: center;
   color: #778da9;
+  margin: 10px;
 }
 
 label, input, select {
@@ -33,6 +34,7 @@ label, input, select {
 h4, h5 {
   color: #415a77;
   font-size: 2.0em;
+  margin: 10px;
 }
 
 h5 {
@@ -42,12 +44,6 @@ h5 {
 blockquote {
   text-align: center;
   color: #1b263b;
-}
-
-/*image*/
-img {
-  display: block;
-  margin: auto;
 }
 
 /*link*/
