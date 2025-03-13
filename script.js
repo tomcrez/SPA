@@ -1,60 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const pages = document.querySelectorAll(".page"); //Select all elements with class page
+    const pages = document.querySelectorAll(".page"); // Select all elements with the class "page"
 
-    function showPage(pageId) { //Function to show a specific page while hiding others
-        pages.forEach((page) => (page.style.display = "none")); //Hide all pages
-        document.getElementById(pageId).style.display = "block"; //Show the selected page
+    function showPage(pageId) { // Function to show a specific page and hide others
+        pages.forEach((page) => (page.style.display = "none")); // Hide all pages
+        document.getElementById(pageId).style.display = "block"; // Show the selected page
     }
 
-    if (localStorage.getItem("loggedIn") === "true") { //Check if the user is logged in when the page loads
-        showPage("trackerPage"); //Show tracker page if logged in
-    } else {
-        showPage("loginPage"); //Otherwise, show login page
+    if (localStorage.getItem("loggedIn") === "true") { // Check if the user is logged in
+        showPage("trackerPage"); // Show the tracker page if logged in
+    } else { // Otherwise, show the login page
+        showPage("loginPage");
     }
 
-    function signup() { //Sign-up function to register a new user
-        const username = document.getElementById("signupUsername").value.trim();
+    function signup() { // Function to handle user sign-up
+        const username = document.getElementById("signupUsername").value.trim(); // Get the username and password from the form
         const password = document.getElementById("signupPassword").value.trim();
 
-        if (!username || !password) {
+        if (!username || !password) { // Check if username and password are there
             alert("Please enter a valid username and password.");
             return;
         }
 
-        localStorage.setItem("user", JSON.stringify({ username, password })); //Save user credentials in localStorage
+        localStorage.setItem("user", JSON.stringify({ username, password })); // Save user credentials in localStorage
         alert("Sign-up successful! Please login.");
-        showPage("loginPage"); //Redirect to login page
+        showPage("loginPage"); // Redirect to the login page
     }
 
-    function login() { //Login function to authenticate the user
-        const username = document.getElementById("loginUsername").value.trim();
+    function login() { // Function to handle user login
+        const username = document.getElementById("loginUsername").value.trim(); // Get the username and password from the form
         const password = document.getElementById("loginPassword").value.trim();
-        const storedUser = JSON.parse(localStorage.getItem("user")); //Retrieve stored user data
+        const storedUser = JSON.parse(localStorage.getItem("user")); // Retrieve stored user data from localStorage
 
-        if (!storedUser || username !== storedUser.username || password !== storedUser.password) { //Check login credentials
+        if (!storedUser || username !== storedUser.username || password !== storedUser.password) { // Check if the credentials match
             alert("Invalid username or password.");
             return;
         }
 
-        localStorage.setItem("loggedIn", "true"); //Mark user as logged in
+        localStorage.setItem("loggedIn", "true"); // Mark the user as logged in
         alert("Login successful!");
-        showPage("trackerPage"); //Redirect to tracker page
+        showPage("trackerPage"); // Redirect to the tracker page
     }
 
-    function logout() { //Logout function to clear session
-        localStorage.removeItem("loggedIn"); //Remove login status from localStorage
+    function logout() { // Function to handle user logout
+        localStorage.removeItem("loggedIn"); // Remove the logged-in status from localStorage
         alert("Logged out successfully!");
-        showPage("loginPage"); //Redirect to login page
+        showPage("loginPage"); // Redirect to the login page
     }
 
-    document.getElementById("signupBtn").addEventListener("click", signup); //Event listeners for buttons
+    // Add event listeners to buttons
+    document.getElementById("signupBtn").addEventListener("click", signup);
     document.getElementById("loginBtn").addEventListener("click", login);
     document.getElementById("logoutBtn").addEventListener("click", logout);
 
-    document.getElementById("toLogin").addEventListener("click", () => showPage("loginPage")); //Navigation buttons to switch between pages
+    // Add event listeners for navigation buttons
+    document.getElementById("toLogin").addEventListener("click", () => showPage("loginPage"));
     document.getElementById("toSignup").addEventListener("click", () => showPage("signupPage"));
     document.getElementById("toTracker").addEventListener("click", () => {
-        if (localStorage.getItem("loggedIn") === "true") {
+        if (localStorage.getItem("loggedIn") === "true") { // Check if the user is logged in before showing the tracker page
             showPage("trackerPage");
         } else {
             alert("Please log in first.");
@@ -63,20 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function showNotification(message) { //Function that shows the notification
-    const notification = document.getElementById('notification');
-    notification.innerText = message;
-    notification.style.display = 'block';
+function showNotification(message) {
+    const notification = document.getElementById('notification'); // Get the notification element
+    notification.innerText = message; // Set the notification text
+    notification.style.display = 'block'; // Display the notification
 }
 
-if (localStorage.getItem('theme') === 'dark') { //Check if dark mode preference is stored in localStorage and apply it
-    document.body.classList.add('dark-mode'); //Apply dark mode if stored preference is 'dark'
+// Check if the dark theme is enabled in localStorage
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode'); // Add the dark-mode class to the body
 }
 
-document.getElementById('themeToggle').addEventListener('click', function () { //Event listener for theme toggle button
-    document.body.classList.toggle('dark-mode'); //Toggle dark mode class
+document.getElementById('themeToggle').addEventListener('click', function () { // Add event listener to the theme toggle button
+    document.body.classList.toggle('dark-mode'); // Toggle the dark-mode class on the body
 
-    //Save the user's theme preference in localStorage
+    // Save the user's theme preference in localStorage
     if (document.body.classList.contains('dark-mode')) {
         localStorage.setItem('theme', 'dark');
     } else {
@@ -85,6 +88,7 @@ document.getElementById('themeToggle').addEventListener('click', function () { /
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Get references to form elements
     const habitInput = document.getElementById('habitInput');
     const monthSelect = document.getElementById('monthSelect');
     const weekSelect = document.getElementById('weekSelect');
@@ -93,57 +97,82 @@ document.addEventListener('DOMContentLoaded', function () {
     const goalCheckboxes = document.querySelectorAll('.goalCheckbox');
     const saveButton = document.getElementById('saveButton');
     const deleteButton = document.getElementById('deleteButton');
+    const loadButton = document.getElementById('loadButton');
 
-    loadData(); //Load saved habit-tracking data on page load
+    loadButton.addEventListener('click', function () { // Add event listener to the "Load Data" button
+        const fileInput = document.createElement('input'); // Create a file input element
+        fileInput.type = 'file';
+        fileInput.accept = '.json';
+        fileInput.onchange = function (event) {
+            const file = event.target.files[0]; // Get the selected file
+            const reader = new FileReader(); // Create a FileReader to read the file
+            reader.onload = function (e) {
+                const data = JSON.parse(e.target.result); // Parse the file contents into a JavaScript object
+                loadData(data); // Load the data into the form
+            };
+            reader.readAsText(file); // Read the file as text
+        };
+        fileInput.click(); // Trigger the file input dialog
+    });
 
-    saveButton.addEventListener('click', function () { //Event listener for save button
-        const data = {
-            habit: habitInput.value, //Store habit input
-            month: monthSelect.value, //Store selected month
-            week: weekSelect.value, //Store selected week
-            days: Array.from(dayCheckboxes).map(checkbox => checkbox.checked), //Store checked days
-            goals: Array.from(goalInputs).map(input => input.value), //Store goal inputs
-            goalChecks: Array.from(goalCheckboxes).map(checkbox => checkbox.checked) //Store goal checkboxes
+    saveButton.addEventListener('click', function () { // Add event listener to the "Save" button
+        const data = { // Create an object with the form data
+            habit: habitInput.value,
+            month: monthSelect.value,
+            week: weekSelect.value,
+            days: Array.from(dayCheckboxes).map(checkbox => checkbox.checked),
+            goals: Array.from(goalInputs).map(input => input.value),
+            goalChecks: Array.from(goalCheckboxes).map(checkbox => checkbox.checked)
         };
 
-        localStorage.setItem('ecoPlanData', JSON.stringify(data)); //Save data to localStorage
-        alert('Data saved!');
+        // Create a Blob with the JSON data
+        const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob); // Generate a URL for the Blob
+        const a = document.createElement('a'); // Create an anchor element to trigger the download
+        a.href = url;
+        a.download = 'ecoPlanData.json';
+        // Trigger the download
+        a.click();
+        // Revoke the URL to free up memory
+        URL.revokeObjectURL(url);
+        alert('Data saved to file!'); // Notify the user that the data has been saved
     });
 
-    deleteButton.addEventListener('click', function () { //Event listener for delete button
-        localStorage.removeItem('ecoPlanData'); //Remove stored data
-        alert('Data deleted!');
-        clearForm(); //Reset form fields
+    // Add event listener to the "Delete" button
+    deleteButton.addEventListener('click', function () {
+        alert('Data deleted!'); // Notify the user that the data has been deleted
+        clearForm();
     });
 
-    function loadData() { //Function to load saved data from localStorage
-        const data = JSON.parse(localStorage.getItem('ecoPlanData'));
-        if (data) {
-            habitInput.value = data.habit;
-            monthSelect.value = data.month;
-            weekSelect.value = data.week;
+    // Function to load data into the form
+    function loadData(data) {
+        habitInput.value = data.habit;
+        monthSelect.value = data.month;
+        weekSelect.value = data.week;
 
-            data.days.forEach((checked, index) => {  //Restore checkbox states
-                dayCheckboxes[index].checked = checked;
-            });
+        // Restore the state of day checkboxes
+        data.days.forEach((checked, index) => {
+            dayCheckboxes[index].checked = checked;
+        });
 
-            data.goals.forEach((goal, index) => { //Restore goal inputs
-                goalInputs[index].value = goal;
-            });
+        // Restore the goal inputs
+        data.goals.forEach((goal, index) => {
+            goalInputs[index].value = goal;
+        });
 
-            data.goalChecks.forEach((checked, index) => { //Restore goal checkbox states
-                goalCheckboxes[index].checked = checked;
-            });
-        }
+        // Restore the state of goal checkboxes
+        data.goalChecks.forEach((checked, index) => {
+            goalCheckboxes[index].checked = checked;
+        });
     }
 
-    // Function to clear all form fields
+    // Function to clear the form
     function clearForm() {
         habitInput.value = '';
-        monthSelect.value = 'January'; //Reset month to default
-        weekSelect.value = '1'; //Reset week to default
-        dayCheckboxes.forEach(checkbox => checkbox.checked = false); //Uncheck all checkboxes
-        goalInputs.forEach(input => input.value = ''); //Clear goal inputs
-        goalCheckboxes.forEach(checkbox => checkbox.checked = false); //Uncheck goal checkboxes
+        monthSelect.value = 'January';
+        weekSelect.value = '1';
+        dayCheckboxes.forEach(checkbox => checkbox.checked = false);
+        goalInputs.forEach(input => input.value = '');
+        goalCheckboxes.forEach(checkbox => checkbox.checked = false);
     }
 });
